@@ -7,6 +7,9 @@ class Login extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('user_m');
+        if ($this->session->userdata('is_login')) {
+            redirect('dashboard');
+        }
     }
 
     public function index() {
