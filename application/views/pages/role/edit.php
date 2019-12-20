@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Create Menu</h3>
+                <h3 class="box-title">Edit Role</h3>
             </div>
             <!-- form start -->
             <form role="form" method="post" action="<?= base_url('role/update/') . $data->id; ?>">

@@ -21,7 +21,7 @@ class Template {
         $this->CI->load->view("templates/footer");
     }
 
-    private function get_menu() {
+    public function get_menu() {
         $parent = $this->CI->menu_m->get_parent();
         $child = $this->CI->menu_m->get_child();
         foreach ($parent as $key => $value) {
