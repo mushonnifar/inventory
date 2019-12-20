@@ -21,6 +21,28 @@ class Barang extends CI_Controller {
         $this->template->load('pages/barang/index', ['data' => $barang]);
     }
 
+    public function index_ajax() {
+        $this->template->load('pages/barang/index_ajax');
+    }
+
+    public function get_data() {
+        $barang = $this->barang_m->get_all();
+
+        $return['data'] = [];
+        $no = 1;
+        foreach ($barang as $value) {
+            $value->no = $no;
+            $value->image = '<img src="' . base_url('assets/images/') . $value->image . '" width="100">';
+            $value->action = '<button class="btn btn-warning" onclick="edit(' . $value->id . ')">Edit</button>&nbsp;'
+                    . '<button class="btn btn-danger" onclick="remove(' . $value->id . ')">Delete</button>';
+            array_push($return['data'], $value);
+            $no++;
+        }
+        $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode($return));
+    }
+
     public function create() {
         if (!$this->auth->privilege_check('barang', 'create')) {
             $this->auth->no_access();
@@ -70,7 +92,7 @@ class Barang extends CI_Controller {
                 print_r($this->upload->display_errors());
             }
         }
-        
+
         $this->barang_m->update($id, $post);
         redirect('barang');
     }

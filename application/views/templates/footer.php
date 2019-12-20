@@ -207,8 +207,7 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery 3 -->
-<script src="<?= base_url('assets/adminlte/bower_components/jquery/dist/jquery.min.js'); ?>"></script>
+
 <!-- Bootstrap 3.3.7 -->
 <script src="<?= base_url('assets/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js'); ?>"></script>
 <!-- FastClick -->
@@ -228,5 +227,7 @@
 <script src="<?= base_url('assets/adminlte/dist/js/pages/dashboard2.js'); ?>"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url('assets/adminlte/dist/js/demo.js'); ?>"></script>
+<!-- Datatable -->
+<script src="<?= base_url('assets/DataTables/datatables.js'); ?>"></script>
 </body>
 </html>
