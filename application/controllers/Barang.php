@@ -20,11 +20,7 @@ class Barang extends CI_Controller {
 
         $this->template->load('pages/barang/index', ['data' => $barang]);
     }
-
-    public function index_ajax() {
-        $this->template->load('pages/barang/index_ajax');
-    }
-
+    
     public function get_data() {
         $barang = $this->barang_m->get_all();
 
