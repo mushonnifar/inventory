@@ -20,7 +20,7 @@ class Auth {
     }
 
     public function no_access() {
-        $this->CI->template->load('no_access');
+        redirect('no_access');
     }
 
 }

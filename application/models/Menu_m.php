@@ -41,4 +41,23 @@ class Menu_m extends CI_Model {
         return $result;
     }
 
+    public function get_parent_by_role($role_id) {
+        $this->db->select('tb1.*');
+        $this->db->from('menu as tb1');
+        $this->db->join('role_has_menu tb2', 'tb1.id = tb2.menu_id');
+        $this->db->where('tb1.parent', 0);
+        $this->db->where('tb2.`read`', 'y');
+        $this->db->where('tb2.role_id', $role_id);
+        return $this->db->get()->result_array();
+    }
+
+    public function get_child_by_role($role_id) {
+        $this->db->select('tb1.*');
+        $this->db->from('menu as tb1');
+        $this->db->join('role_has_menu tb2', 'tb1.id = tb2.menu_id');
+        $this->db->where('tb1.parent !=', 0);
+        $this->db->where('tb2.`read`', 'y');
+        $this->db->where('tb2.role_id', $role_id);
+        return $this->db->get()->result_array();
+    }
 }

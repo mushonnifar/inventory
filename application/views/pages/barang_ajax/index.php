@@ -21,7 +21,9 @@
                 </table>
             </div>
             <div class="box-footer">
-                <button type="button" class="btn btn-primary" onclick="create()"><i class="fa fa-plus"></i></button>
+                <?php if ($this->auth->privilege_check('barang_ajax', 'create')) { ?>
+                    <button type="button" class="btn btn-primary" onclick="create()"><i class="fa fa-plus"></i></button>
+                <?php } ?>
             </div>
         </div>
     </div>
